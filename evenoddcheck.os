@@ -1,0 +1,5 @@
+LOAD R1 getint;
+LOAD R2 2;
+MOD R1, R2, R3;
+PRINT R3;
+END;

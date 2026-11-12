@@ -1,0 +1,12 @@
+load r1, getint ; devidened
+load r2, getint ; devisor
+goto loop
+loop:
+	sub r1, r2, r3 ; print r3
+	load r1, r3 ; print r3
+	cmp r1, r2
+	goto loop if >=
+	goto end if <
+end:
+	print r1 ; remainder
+	end

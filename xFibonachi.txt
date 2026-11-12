@@ -1,0 +1,19 @@
+load r1 0 ; first element
+load r2 1 ; second elment
+load r10 1 ; increment
+load r3 2 ; compare
+load r13 getint ; input
+goto A
+
+A:
+	add r1 r2 r4
+	load r1 r2
+	load r2 r4
+	add r3 r10 r9
+	load r3 r9
+	cmp r9 r13
+	goto B if ==
+	goto A
+B:
+	print r4
+	end

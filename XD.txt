@@ -1,0 +1,41 @@
+putchar \n
+load r1 7 ; total lines
+load r2 2 ; mod 2
+load r3 3 ; mod 3
+load r4 1 ; increment & modulo cmp
+load r5 1 ; char count
+load r6 0 ; line count
+load r8 0 ; modulo cmp
+goto start ; r7 result of modulo
+
+start:
+	cmp r1 r6 ; line check
+	goto end if ==
+	mod r5 r3 r7
+	cmp r7 r8 ; mod 3 ? 0
+	goto enter if ==
+	mod r5 r2 r7
+	cmp r7 r4 ; mod 2 ? 1
+	goto X if ==	
+	mod r5 r2 r7
+	cmp r7 r8 ; mod 2 ? 0
+	goto D if ==
+	
+X:
+	putchar X
+	add r5 r4 r5
+	goto start
+
+D:
+	putchar D
+	add r5 r4 r5
+	goto start
+
+enter:
+	putchar \n
+	load r5 1
+	add r6 r4 r6
+	goto start
+
+end:
+	end

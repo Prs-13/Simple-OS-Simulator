@@ -1,0 +1,45 @@
+SWT \n Y;
+LOAD R1, 13;
+LOAD R2, 39;
+LOAD R79, _flag_; special value for showing output
+LOAD R26, getint;
+ADD R1, R2, R3;
+SUB R1, R2, R4;
+MUL R1, R2, R5;
+DIV R1, R2, R6;
+MOD R1, R2, R7;
+PRINT R3;
+PRINT R5;
+END;
+
+CMP R1, R2;
+goto equal if ==;
+goto greater if >;
+goto smaller if <;
+
+equal:
+	SET "E", X;
+	LOAD R50, 0;
+	putchar E
+greater:
+	SET "G", X;
+	LOAD R50, 1;
+	putchar G
+smaller:
+	SET "S", X;
+	LOAD R50, -1;
+	putchar S
+
+LOAD R13, 13;
+LOAD R14, 5;
+goto LOOP;
+
+LOOP:
+	SUB R13, R14, R15;
+	LOAD R13, R15;
+	CMP R13, R14;
+	goto LOOP if >=;
+	goto end if <;
+
+end:
+	END;
